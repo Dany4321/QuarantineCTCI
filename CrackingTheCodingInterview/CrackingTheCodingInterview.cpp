@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include "StringPermutationsSearch.h"
+#include "TestMyArray.h"
 int main()
 {
-	StringPermutationsSearch::Search("abc", "aaaaaaaa");
+	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
+	TestMyArray::RunAllTests();
 	system("pause");
 }
 

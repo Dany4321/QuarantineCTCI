@@ -152,14 +152,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp" />
-    <ClCompile Include="MyArray.cpp" />
     <ClCompile Include="StringPermutationsSearch.cpp" />
+    <ClCompile Include="TestMyArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyHashTable.h" />
     <ClInclude Include="MyStringBuilder.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
+    <ClInclude Include="TestMyArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

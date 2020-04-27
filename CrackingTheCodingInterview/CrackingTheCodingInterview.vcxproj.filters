@@ -33,8 +33,8 @@
     <ClCompile Include="StringPermutationsSearch.cpp">
       <Filter>Chapters\TechnicalQuestions</Filter>
     </ClCompile>
-    <ClCompile Include="MyArray.cpp">
-      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+    <ClCompile Include="TestMyArray.cpp">
+      <Filter>Chapters\ArraysAndStrings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="MyArray.h">
       <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMyArray.h">
+      <Filter>Chapters\ArraysAndStrings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
