@@ -1,0 +1,3 @@
+﻿  MyArray.cpp
+c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\myarray.cpp(5): warning C4812: obsolete declaration style: please use 'MyArray<T>::MyArray' instead
+  CrackingTheCodingInterview.vcxproj -> C:\Users\danyv\source\repos\CrackingTheCodingInterview\Debug\CrackingTheCodingInterview.exe
