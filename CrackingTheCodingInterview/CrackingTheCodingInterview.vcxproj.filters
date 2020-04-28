@@ -36,6 +36,12 @@
     <ClCompile Include="TestMyArray.cpp">
       <Filter>Chapters\ArraysAndStrings</Filter>
     </ClCompile>
+    <ClCompile Include="MyStringBuilder.cpp">
+      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+    </ClCompile>
+    <ClCompile Include="TestStringBuilder.cpp">
+      <Filter>Chapters\ArraysAndStrings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringPermutationsSearch.h">
@@ -51,6 +57,9 @@
       <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
     </ClInclude>
     <ClInclude Include="TestMyArray.h">
+      <Filter>Chapters\ArraysAndStrings</Filter>
+    </ClInclude>
+    <ClInclude Include="TestStringBuilder.h">
       <Filter>Chapters\ArraysAndStrings</Filter>
     </ClInclude>
   </ItemGroup>

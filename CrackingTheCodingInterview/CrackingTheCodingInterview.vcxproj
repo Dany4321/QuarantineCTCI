@@ -152,8 +152,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp" />
+    <ClCompile Include="MyStringBuilder.cpp" />
     <ClCompile Include="StringPermutationsSearch.cpp" />
     <ClCompile Include="TestMyArray.cpp" />
+    <ClCompile Include="TestStringBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyArray.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="MyStringBuilder.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
     <ClInclude Include="TestMyArray.h" />
+    <ClInclude Include="TestStringBuilder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
