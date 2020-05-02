@@ -25,6 +25,9 @@
     <Filter Include="Chapters\ArraysAndStrings\MyDataStructures">
       <UniqueIdentifier>{9ce7e7ca-8868-45aa-8921-d6b154dfacef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Chapters\ArraysAndStrings\Exercices">
+      <UniqueIdentifier>{0f39bf01-13f1-4d3e-bde5-5d2be7e97d83}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp">
@@ -41,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="TestStringBuilder.cpp">
       <Filter>Chapters\ArraysAndStrings</Filter>
+    </ClCompile>
+    <ClCompile Include="Exercice.cpp">
+      <Filter>Chapters\ArraysAndStrings\Exercices</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="TestStringBuilder.h">
       <Filter>Chapters\ArraysAndStrings</Filter>
+    </ClInclude>
+    <ClInclude Include="Exercices.h">
+      <Filter>Chapters\ArraysAndStrings\Exercices</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

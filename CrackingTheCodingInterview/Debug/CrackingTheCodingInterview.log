@@ -1,3 +1,8 @@
-﻿  MyStringBuilder.cpp
-c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\mystringbuilder.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  CrackingTheCodingInterview.cpp
+  Exercice.cpp
+c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\exercice.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\exercice.cpp(75): warning C4018: '<': signed/unsigned mismatch
+c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\exercice.cpp(138): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+c:\users\danyv\source\repos\crackingthecodinginterview\crackingthecodinginterview\exercice.cpp(58): warning C4715: 'Exercice::CheckPermutation': not all control paths return a value
   CrackingTheCodingInterview.vcxproj -> C:\Users\danyv\source\repos\CrackingTheCodingInterview\Debug\CrackingTheCodingInterview.exe

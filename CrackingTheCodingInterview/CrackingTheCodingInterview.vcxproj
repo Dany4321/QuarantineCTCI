@@ -152,12 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp" />
+    <ClCompile Include="Exercice.cpp" />
     <ClCompile Include="MyStringBuilder.cpp" />
     <ClCompile Include="StringPermutationsSearch.cpp" />
     <ClCompile Include="TestMyArray.cpp" />
     <ClCompile Include="TestStringBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Exercices.h" />
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyHashTable.h" />
     <ClInclude Include="MyStringBuilder.h" />

@@ -5,11 +5,31 @@
 #include "StringPermutationsSearch.h"
 #include "TestMyArray.h"
 #include "TestStringBuilder.h"
+#include "Exercices.h"
 int main()
 {
 	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
-	TestStringBuilder::RunAllTests();
-	system("pause");
+	//TestStringBuilder::RunAllTests();
+	int N = 4;
+	int** newImage = new int*[N];
+	int c = 0;
+	for (int k = 0; k < N; k++) {
+		newImage[k] = new int[N];
+		for (int l = 0; l < N; l++) {
+			newImage[k][l] = ++c;
+			cout << c << " ";
+		}
+		cout << endl;
+	}
+	int** result = Exercice::RotateMatrix(newImage, N);
+	 cout << endl;
+	 for (int k = 0; k < N; k++) {
+		 for (int l = 0; l < N; l++) {
+			 cout << result[k][l] << " ";
+		 }
+		 cout << endl;
+	 }
+		system("pause");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
