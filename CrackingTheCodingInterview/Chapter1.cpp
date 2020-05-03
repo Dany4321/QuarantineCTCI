@@ -1,6 +1,6 @@
-#include "Exercices.h"
+#include "Chapter1.h"
 #include "iostream";
-bool Exercice::IsUnique(string s) {
+bool Chapter1::IsUnique(string s) {
 	if (s.length() > 256)
 	{
 		return false;
@@ -32,7 +32,7 @@ bool Exercice::IsUnique(string s) {
 
 */
 }
-bool Exercice::CheckPermutation(string s1, string s2) {
+bool Chapter1::CheckPermutation(string s1, string s2) {
 	if (s1.length() == s2.length() && s1.length() == 0) {
 		//O(n) in time O(1) in space
 		// we assume that the string is ascii
@@ -56,7 +56,7 @@ bool Exercice::CheckPermutation(string s1, string s2) {
 		return false;
 	}
 }
-string Exercice::Urlify(string s,int length) {
+string Chapter1::Urlify(string s,int length) {
 	string s2 = string(s);
 	int idxS2 = 0;
 	for (int i = 0; i < length;i++) {
@@ -71,7 +71,7 @@ string Exercice::Urlify(string s,int length) {
 	}
 	return s2;
 }
-bool Exercice::PalindromePermutation(string s) {
+bool Chapter1::PalindromePermutation(string s) {
 	for (int k = 0; k < s.length();k++) {
 		s[k] = tolower(s[k]);
 	}
@@ -93,7 +93,7 @@ bool Exercice::PalindromePermutation(string s) {
 	}
 	return true;
 }
-bool  Exercice::OneAway(string original, string edited) {
+bool  Chapter1::OneAway(string original, string edited) {
 	int oSize = original.length();
 	int eSize = edited.length();
 	if (abs(oSize - eSize) > 1) { //one insertion max, one remove max
@@ -127,7 +127,7 @@ bool  Exercice::OneAway(string original, string edited) {
 	}
 	return true;
 }
-string Exercice::StringCompression(string s) {
+string Chapter1::StringCompression(string s) {
 	if (s.length() == 0) {
 		return "";
 	}
@@ -155,7 +155,7 @@ string Exercice::StringCompression(string s) {
 	return result;
 }
 
-int**  Exercice::RotateMatrix(int** image, int N) {
+int**  Chapter1::RotateMatrix(int** image, int N) {
 	int** newImage = new int*[N];
 	for (int k = 0; k < N; k++) {
 		newImage[k] = new int[N];
@@ -166,4 +166,107 @@ int**  Exercice::RotateMatrix(int** image, int N) {
 		}
 	}
 	return newImage;
+}
+//O(n^2)
+int**  Chapter1:: ZeroMatrix(int** matrix, int width, int heigth) {
+	bool* cols = new bool[width];
+	bool* rows = new bool[heigth];
+	
+	for (int k = 0; k < width; k++){
+		cols[k] = false;
+	}
+	for (int k = 0; k < heigth; k++) {
+		rows[k] = false;
+	}
+	for (int i = 0; i < heigth; i++) {
+		for (int j = 0; j < width; j++) {
+			if (matrix[i][j] == 0) {
+				cols[j] = true;
+				rows[i] = true;
+			}
+		}
+	}
+	for (int k = 0; k < heigth; k++) {
+		for (int l = 0; l < width; l++) {
+			if (rows[k]) {
+				matrix[k][l] = 0;
+			}
+			else if (cols[l]) {
+				matrix[k][l] = 0;
+			}
+		}
+		
+	}
+	return matrix;
+}
+int  Chapter1::StringRotationHeuristic(string s1, string s2) {
+	int max = 0;
+	for (int i = 0; i < s1.length(); i++) {
+		int score = 0;
+		if ((s1.length() - i) < max) {
+			break;
+		}
+		for (int j = 0; j < s2.length(); j++) {
+			if (s1[i] == s2[j]) {
+				++score;
+			}
+			else {
+				break;
+			}
+		}
+		if (score > max) {
+			max = score;
+		}
+	}
+	return max;
+}
+bool Chapter1::StringRotation(string s1, string s2) {
+	if (s1.length() != s2.length()) {
+		return false;
+	}
+	int max = 0;
+	int bestMatchS1Start = 0;
+	for (int i = 0; i < s1.length(); i++) {
+		int k = i;
+		int score = 0;
+		for (int j = 0; j < s2.length(); j++) {
+			int l = j;
+			score = 0;
+			while (l<s2.length()) {
+				if (s1[k] == s2[l]) {
+					++score;
+					++k;
+				}
+				else if (score > max) {
+					max = score;
+					bestMatchS1Start = i;
+				}
+				else {
+					break;
+				}
+				++l;
+			}
+			if (score > max) {
+				max = score;
+				bestMatchS1Start = i;
+			}
+
+		}
+	}
+	if (bestMatchS1Start > 0) {
+		string diff1 = s1;
+		string diff2 = s2;
+		string common = s1.substr(bestMatchS1Start, max);
+		diff1 = diff1.replace(bestMatchS1Start, max, "");
+		int i = diff2.find(common);
+		if (i != string::npos) {
+			diff2.erase(i, common.length());
+		}
+		
+		return (diff1 == diff2);
+	}
+	else {
+		return false;
+	}
+	
 }
