@@ -6,6 +6,7 @@
 #include "TestMyArray.h"
 #include "TestStringBuilder.h"
 #include "Chapter1.h"
+#include "TestLinkedList.h"
 int main()
 {
 	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
@@ -29,7 +30,7 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	bool t = Chapter1::StringRotation("waterbottle", "erbottlewat");
+	TestLinkedList::RunAllTest();
 		system("pause");
 }
 

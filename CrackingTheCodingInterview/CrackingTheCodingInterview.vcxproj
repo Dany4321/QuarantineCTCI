@@ -152,18 +152,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp" />
-    <ClCompile Include="Exercice.cpp" />
+    <ClCompile Include="Chapter1.cpp" />
     <ClCompile Include="MyStringBuilder.cpp" />
     <ClCompile Include="StringPermutationsSearch.cpp" />
+    <ClCompile Include="TestLinkedList.cpp" />
     <ClCompile Include="TestMyArray.cpp" />
     <ClCompile Include="TestStringBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Exercices.h" />
+    <ClInclude Include="Chapter1.h" />
+    <ClInclude Include="Chapter2.h" />
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyHashTable.h" />
+    <ClInclude Include="MyLinkedList.h" />
+    <ClInclude Include="MyNode.h" />
     <ClInclude Include="MyStringBuilder.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
+    <ClInclude Include="TestLinkedList.h" />
     <ClInclude Include="TestMyArray.h" />
     <ClInclude Include="TestStringBuilder.h" />
   </ItemGroup>

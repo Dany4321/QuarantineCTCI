@@ -4,6 +4,7 @@
 #include <functional>
 using namespace std;
 template< typename U, typename T>
+// Not tested yet
 class MyHashTable {
 public:
 

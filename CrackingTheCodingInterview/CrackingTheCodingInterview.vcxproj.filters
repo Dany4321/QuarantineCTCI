@@ -19,13 +19,13 @@
     <Filter Include="Chapters\TechnicalQuestions">
       <UniqueIdentifier>{32675998-d1bf-4144-8e86-5df4584a880d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapters\ArraysAndStrings">
+    <Filter Include="Chapters\Algos">
       <UniqueIdentifier>{f639f2a7-cf82-46ed-95be-02afff69c8d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapters\ArraysAndStrings\MyDataStructures">
+    <Filter Include="Chapters\Algos\MyDataStructures">
       <UniqueIdentifier>{9ce7e7ca-8868-45aa-8921-d6b154dfacef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Chapters\ArraysAndStrings\Exercices">
+    <Filter Include="Chapters\Algos\Exercices">
       <UniqueIdentifier>{0f39bf01-13f1-4d3e-bde5-5d2be7e97d83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -37,16 +37,19 @@
       <Filter>Chapters\TechnicalQuestions</Filter>
     </ClCompile>
     <ClCompile Include="TestMyArray.cpp">
-      <Filter>Chapters\ArraysAndStrings</Filter>
+      <Filter>Chapters\Algos</Filter>
     </ClCompile>
     <ClCompile Include="MyStringBuilder.cpp">
-      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClCompile>
     <ClCompile Include="TestStringBuilder.cpp">
-      <Filter>Chapters\ArraysAndStrings</Filter>
+      <Filter>Chapters\Algos</Filter>
     </ClCompile>
-    <ClCompile Include="Exercice.cpp">
-      <Filter>Chapters\ArraysAndStrings\Exercices</Filter>
+    <ClCompile Include="Chapter1.cpp">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLinkedList.cpp">
+      <Filter>Chapters\Algos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,22 +57,34 @@
       <Filter>Chapters\TechnicalQuestions</Filter>
     </ClInclude>
     <ClInclude Include="MyHashTable.h">
-      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
     <ClInclude Include="MyStringBuilder.h">
-      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
     <ClInclude Include="MyArray.h">
-      <Filter>Chapters\ArraysAndStrings\MyDataStructures</Filter>
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
     <ClInclude Include="TestMyArray.h">
-      <Filter>Chapters\ArraysAndStrings</Filter>
+      <Filter>Chapters\Algos</Filter>
     </ClInclude>
     <ClInclude Include="TestStringBuilder.h">
-      <Filter>Chapters\ArraysAndStrings</Filter>
+      <Filter>Chapters\Algos</Filter>
     </ClInclude>
-    <ClInclude Include="Exercices.h">
-      <Filter>Chapters\ArraysAndStrings\Exercices</Filter>
+    <ClInclude Include="Chapter1.h">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter2.h">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLinkedList.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLinkedList.h">
+      <Filter>Chapters\Algos</Filter>
+    </ClInclude>
+    <ClInclude Include="MyNode.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
