@@ -23,10 +23,10 @@ void TestLinkedList::RunAllTest() {
 	 MyLinkedList<int> list = MyLinkedList<int>(true);
 	 list.Push_Front(1);
 	 list.Push_Front(2);
-	 list.Push_Front(3);
-	 list.Push_Front(4);
+	 list.Push_Front(1);
+	 list.Push_Front(1);
 	 list.Push_Front(5);
-	 list.Remove(4);
+	 list.Remove(1);
 	 MyNode<int>*  node = list.GetRoot();
 	 if (node->GetValue() == 4 ) {
 		 cout << "test failed" << endl;

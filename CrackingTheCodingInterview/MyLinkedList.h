@@ -27,7 +27,7 @@ public:
 		}
 		this->_root = value;
 	}
-	// Remove first occurence of value
+	// Remove all occurence of value
 	void Remove(T value) {
 		MyNode<T>* node = this->_root;
 		MyNode<T>* previous = nullptr;
@@ -36,16 +36,18 @@ public:
 				MyNode<T>* next = node->GetNext();
 				if (previous != nullptr) {
 					previous->SetNext(next);
-					if (this->_isDoubleLinked) {
+					if (this->_isDoubleLinked && next != nullptr) {
 						next->SetPrevious(previous);
 					}
 				}
 				else {
 					this->_root = next;
-					this->_root->SetPrevious(nullptr);
+					if (this->_root != nullptr) {
+						this->_root->SetPrevious(nullptr);
+					}
 				}
 				delete node;
-				break;
+				node = previous;
 			}
 			previous = node;
 			node = node->GetNext();
