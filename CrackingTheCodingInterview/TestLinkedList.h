@@ -7,4 +7,5 @@ public:
 	static void RunAllTest();
 	static void AddTest();
 	static void RemoveTest();
+	static void RemoveDuplicates();
 };

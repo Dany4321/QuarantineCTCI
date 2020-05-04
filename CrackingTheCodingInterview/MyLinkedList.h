@@ -53,6 +53,32 @@ public:
 			node = node->GetNext();
 		}
 	}
+	void RemoveDuplicates() {
+		MyNode<T>* node = this->_root;
+		MyNode<T>* previous = nullptr;
+		while (node != nullptr) {
+			MyNode<T>* tmp = node->GetNext();
+			MyNode<T>* previous = node;
+			while (tmp != nullptr) {
+				MyNode<T>* nextNext = tmp->GetNext();
+				if (tmp->GetValue() == node->GetValue()) {
+					previous->SetNext(nextNext);
+					if (this->_isDoubleLinked && nextNext != nullptr) {
+						nextNext->SetPrevious(previous);
+					}
+					delete tmp;
+				}
+				else {
+					previous = tmp;
+				}
+				tmp = previous->GetNext();
+			}
+			node = node->GetNext();
+			if (node != nullptr) {
+				this->_last = node;
+			}
+		}
+	}
 	MyNode<T>* GetRoot() {
 		return this->_root;
 	}

@@ -51,6 +51,9 @@
     <ClCompile Include="TestLinkedList.cpp">
       <Filter>Chapters\Algos</Filter>
     </ClCompile>
+    <ClCompile Include="Chapter2.cpp">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringPermutationsSearch.h">

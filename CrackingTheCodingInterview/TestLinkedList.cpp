@@ -1,7 +1,8 @@
 #include"TestLinkedList.h"
 void TestLinkedList::RunAllTest() {
-	AddTest();
-	RemoveTest();
+	//AddTest();
+	//RemoveTest();
+	RemoveDuplicates();
  }
  void TestLinkedList::AddTest() {
 	 MyLinkedList<int> list;
@@ -31,4 +32,33 @@ void TestLinkedList::RunAllTest() {
 	 if (node->GetValue() == 4 ) {
 		 cout << "test failed" << endl;
 	 }
+ }
+ void TestLinkedList::RemoveDuplicates() {
+	 MyLinkedList<int> list = MyLinkedList<int>(true);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(5);
+
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(5);
+
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(5);
+
+	 list.RemoveDuplicates();
+	 MyNode<int>*  node = list.GetRoot();
  }
