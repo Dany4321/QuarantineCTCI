@@ -89,5 +89,8 @@
     <ClInclude Include="MyNode.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
+    <ClInclude Include="MyListIterator.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

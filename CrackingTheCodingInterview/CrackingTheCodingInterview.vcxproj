@@ -166,6 +166,7 @@
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyHashTable.h" />
     <ClInclude Include="MyLinkedList.h" />
+    <ClInclude Include="MyListIterator.h" />
     <ClInclude Include="MyNode.h" />
     <ClInclude Include="MyStringBuilder.h" />
     <ClInclude Include="StringPermutationsSearch.h" />

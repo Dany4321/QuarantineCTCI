@@ -60,5 +60,7 @@ void TestLinkedList::RunAllTest() {
 	 list.Push_Front(5);
 
 	 list.RemoveDuplicates();
+	 MyLinkedList<int>::iterator it = list.Begin();
+	 int t = *it;
 	 MyNode<int>*  node = list.GetRoot();
  }

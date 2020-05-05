@@ -4,5 +4,6 @@
 #include <algorithm>
 class Chapter2 {
 public:
+
 private:
 };

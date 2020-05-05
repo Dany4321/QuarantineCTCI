@@ -1,9 +1,11 @@
 #pragma once
 #include"MyNode.h"
+#include "MyListIterator.h"
 using namespace std;
 template<class T>
 class MyLinkedList {
 public:
+	typedef MyListIterator<T> iterator;public:
 	MyLinkedList(bool isDoubleLinked = false):_isDoubleLinked(isDoubleLinked) {
 
 	}
@@ -78,6 +80,18 @@ public:
 				this->_last = node;
 			}
 		}
+	}
+	bool IsEmpty() {
+		return this->_root == nullptr;
+	}
+	iterator Begin() {
+		if (this->_root != nullptr) {
+			return    iterator(this->_root);
+		}
+		return nullptr;
+	}
+	iterator End() {
+		return iterator(nullptr);
 	}
 	MyNode<T>* GetRoot() {
 		return this->_root;

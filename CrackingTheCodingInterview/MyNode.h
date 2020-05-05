@@ -1,6 +1,8 @@
 #pragma once
+template <typename T> class MyListIterator;
 template<class T>
 class MyNode {
+	friend class MyListIterator<T>;
 public:
 	MyNode(T value) :_value(value) {
 
