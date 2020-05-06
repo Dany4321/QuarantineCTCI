@@ -2,7 +2,8 @@
 void TestLinkedList::RunAllTest() {
 	//AddTest();
 	//RemoveTest();
-	RemoveDuplicates();
+	//RemoveDuplicates();
+	PartitionTest();
  }
  void TestLinkedList::AddTest() {
 	 MyLinkedList<int> list;
@@ -61,6 +62,30 @@ void TestLinkedList::RunAllTest() {
 
 	 list.RemoveDuplicates();
 	 MyLinkedList<int>::iterator it = list.Begin();
-	 int t = *it;
+	 MyNode<int>*  node = list.GetRoot();
+ }
+ void TestLinkedList::PartitionTest() {
+	 MyLinkedList<int> list = MyLinkedList<int>(true);
+	 list.Push_Front(1);
+	 list.Push_Front(2);
+	 list.Push_Front(5);
+	 list.Push_Front(3);
+	 list.Push_Front(4);
+	 list.Push_Front(2);
+	 list.Push_Front(5);
+
+
+	 list.Push_Front(1);
+	 list.Push_Front(20);
+	 list.Push_Front(5);
+	 list.Push_Front(30);
+	 list.Push_Front(40);
+	 list.Push_Front(2);
+	 list.Push_Front(1);
+
+
+
+	 list.Partition(5);
+	 MyLinkedList<int>::iterator it = list.Begin();
 	 MyNode<int>*  node = list.GetRoot();
  }

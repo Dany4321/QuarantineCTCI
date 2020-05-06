@@ -5,7 +5,8 @@ using namespace std;
 template<class T>
 class MyLinkedList {
 public:
-	typedef MyListIterator<T> iterator;public:
+	typedef MyListIterator<T> iterator;
+public:
 	MyLinkedList(bool isDoubleLinked = false):_isDoubleLinked(isDoubleLinked) {
 
 	}
@@ -80,6 +81,82 @@ public:
 				this->_last = node;
 			}
 		}
+	}
+	iterator GetKthToLast(int k) {
+		iterator it = this->Begin();
+		int count = 0;
+		while(it._referedNode != nullptr && ++count < k){
+			it = ++it;
+		}
+		return it;
+	}
+	void DeleteMiddleNode(T value) {
+		int count = 0;
+		iterator it = this->Begin();
+		while (it._referedNode != nullptr) {
+			it = ++it;
+			++count;
+		}
+		int middle = count / 2;
+		if (middle > 0 && middle < count) {
+			it = this->Begin();
+			MyNode<T>* previousNode = nullptr;
+			while (it._referedNode != nullptr && count < middle) {
+				previousNode = it._referedNode;
+				it = ++it;
+				++count;
+			}
+			if (it._referedNode->GetValue() == value) {
+				MyNode<T>* middleNode = it._referedNode;
+				MyNode<T>* nextNode = it._referedNode->GetNext();
+				previousNode->SetNext(nextNode);
+				if (this->_isDoubleLinked) {
+					nextNode->SetPrevious(previousNode);
+				}
+				delete middleNode;
+			}
+		}
+	}
+	void Partition(T value) {
+		MyNode<T>* node = this->_root;
+		MyNode<T>* lastPreviousOfMedian = nullptr;
+		MyNode<T>* lastNext= nullptr;
+		MyNode<T>* medianNode = nullptr;
+		while (node != nullptr) {
+			MyNode<T>* next = node->GetNext();
+			if (node->GetValue() < value) {
+				if (lastPreviousOfMedian != nullptr) {
+					if (this->_isDoubleLinked) {
+						node->SetPrevious(lastPreviousOfMedian);
+					}
+					lastPreviousOfMedian->SetNext(node);
+				}
+				else {
+					this->_root = node;
+					this->_root->SetPrevious(nullptr);
+				}
+				lastPreviousOfMedian = node;
+				lastPreviousOfMedian->SetNext(medianNode);
+				if (this->_isDoubleLinked && medianNode != nullptr) {
+					medianNode->SetPrevious(lastPreviousOfMedian);
+				}
+			}
+			else {
+				if (medianNode == nullptr) {
+					medianNode = node;
+				}
+				node->SetNext(nullptr);
+				if (lastNext != nullptr) {
+					if (this->_isDoubleLinked) {
+						node->SetPrevious(lastNext);
+					}
+					lastNext->SetNext(node);
+				}
+				lastNext = node;
+			}
+			node = next;
+		}
+		this->_last = lastNext;
 	}
 	bool IsEmpty() {
 		return this->_root == nullptr;

@@ -8,4 +8,5 @@ public:
 	static void AddTest();
 	static void RemoveTest();
 	static void RemoveDuplicates();
+	static void PartitionTest();
 };
