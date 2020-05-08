@@ -13,7 +13,7 @@ public:
 			delete this->_currentNode;
 			this->_currentNode = next;
 		}
-		delete this->_min;
+		 this->_min = nullptr;
 	}
 	T Top() {
 		return this->_currentNode->GetValue();
