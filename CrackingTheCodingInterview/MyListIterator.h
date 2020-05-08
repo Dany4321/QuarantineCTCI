@@ -15,7 +15,7 @@ public:
 		if (this->_referedNode != nullptr) {
 			this->_referedNode = this->_referedNode->GetNext();
 		}
-		return this;
+		return *this;
 	}
 	bool operator != (const MyListIterator<T> & it)const {
 		return this->_referedNode != it._referedNode;

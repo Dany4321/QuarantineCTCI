@@ -54,6 +54,9 @@
     <ClCompile Include="Chapter2.cpp">
       <Filter>Chapters\Algos\Exercices</Filter>
     </ClCompile>
+    <ClCompile Include="Chapter3.cpp">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringPermutationsSearch.h">
@@ -90,6 +93,18 @@
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
     <ClInclude Include="MyListIterator.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter3.h">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClInclude>
+    <ClInclude Include="MyStack.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="MyQueue.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreeStacksInOne.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
   </ItemGroup>

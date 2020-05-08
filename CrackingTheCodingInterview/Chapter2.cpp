@@ -88,4 +88,15 @@ MyNode<int>* Chapter2::Intersection(MyLinkedList<int> L1, MyLinkedList<int> L2) 
 
 MyNode<int>*  Chapter2::LoopDetection(MyLinkedList<int> L1) {
 	// use a map, if a node already exist it is the one
+	map< MyNode<int>*, bool> dict;
+	MyNode<int>* node1 = L1.GetRoot();
+	while (node1 != nullptr) {
+		map< MyNode<int>*, bool> ::iterator it = dict.find(node1);
+		if (it != dict.end()) {
+			return node1;
+		}
+		dict.insert(pair< MyNode<int>*, bool>(node1, true));
+		node1 = node1->GetNext();
+	}
+	return nullptr;
 }

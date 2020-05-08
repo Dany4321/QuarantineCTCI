@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chapter2.cpp" />
+    <ClCompile Include="Chapter3.cpp" />
     <ClCompile Include="CrackingTheCodingInterview.cpp" />
     <ClCompile Include="Chapter1.cpp" />
     <ClCompile Include="MyStringBuilder.cpp" />
@@ -163,16 +164,20 @@
   <ItemGroup>
     <ClInclude Include="Chapter1.h" />
     <ClInclude Include="Chapter2.h" />
+    <ClInclude Include="Chapter3.h" />
     <ClInclude Include="MyArray.h" />
     <ClInclude Include="MyHashTable.h" />
     <ClInclude Include="MyLinkedList.h" />
     <ClInclude Include="MyListIterator.h" />
     <ClInclude Include="MyNode.h" />
+    <ClInclude Include="MyQueue.h" />
+    <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyStringBuilder.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
     <ClInclude Include="TestLinkedList.h" />
     <ClInclude Include="TestMyArray.h" />
     <ClInclude Include="TestStringBuilder.h" />
+    <ClInclude Include="ThreeStacksInOne.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

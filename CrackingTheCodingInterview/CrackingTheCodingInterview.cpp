@@ -5,7 +5,7 @@
 #include "StringPermutationsSearch.h"
 #include "TestMyArray.h"
 #include "TestStringBuilder.h"
-#include "Chapter1.h"
+#include "Chapter3.h"
 #include "TestLinkedList.h"
 int main()
 {
@@ -30,7 +30,7 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	TestLinkedList::RunAllTest();
+	Chapter3::StackMin();
 		system("pause");
 }
 
