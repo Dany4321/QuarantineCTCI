@@ -41,7 +41,7 @@ int main()
 	stack.Push(68);
 	stack.Push(40);
 
-	Chapter3::SortStack(stack);
+	MyStack<int>* res =Chapter3::SortStack(stack);
 		system("pause");
 }
 

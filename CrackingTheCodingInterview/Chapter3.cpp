@@ -88,14 +88,14 @@ void  Chapter3::QueueViaStacks() {
 	res = stack.Peek();
 	stack.Pop();
 }
-void  Chapter3::SortStack(MyStack<int>& stack) {
-	MyStack<int> tmpStack;
+MyStack<int>*  Chapter3::SortStack(MyStack<int> stack) {
+	MyStack<int>* tmpStack = new MyStack<int>();
 	while (!stack.IsEmpty()) {
 		int top = stack.Top();
 		stack.Pop();
-		InsertValueInOrderedStack(top, tmpStack);
+		InsertValueInOrderedStack(top, *tmpStack);
 	}
-	stack = tmpStack;
+	return tmpStack;
 }
 void  Chapter3::InsertValueInOrderedStack(int val, MyStack<int>& stack) {
 	if (stack.IsEmpty()) {

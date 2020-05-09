@@ -10,7 +10,7 @@ public:
 	static void StackMin();
 	static void StackOfPlates();
 	static void QueueViaStacks();
-	static void SortStack(MyStack<int>& stack);
+	static MyStack<int>* SortStack(MyStack<int> stack);
 private:
 	static void InsertValueInOrderedStack(int val, MyStack<int>& stack);
 };
