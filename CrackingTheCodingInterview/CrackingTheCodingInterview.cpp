@@ -30,7 +30,7 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	Chapter3::StackOfPlates();
+	Chapter3::QueueViaStacks();
 		system("pause");
 }
 

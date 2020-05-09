@@ -2,6 +2,7 @@
 #include "ThreeStacksInOne.h"
 #include "MyStack.h"
 #include "SetOfStacks.h"
+#include "QueueByStacks.h"
 void Chapter3:: ThreeInOne() {
 	ThreeStacksInOne<int> tripleStack;
 	tripleStack.Push1(1);
@@ -74,4 +75,18 @@ void Chapter3::StackOfPlates() {
 	set.Pop();
 	set.Pop();
 	set.Pop();
+}
+void  Chapter3::QueueViaStacks() {
+	QueueByStacks<int> stack;
+	stack.Add(1);
+	stack.Add(2);
+	stack.Add(3);
+	stack.Add(4);
+	stack.Add(5);
+	stack.Pop();
+	int res = stack.Peek();
+	stack.Pop();
+	stack.Pop();
+	res = stack.Peek();
+	stack.Pop();
 }
