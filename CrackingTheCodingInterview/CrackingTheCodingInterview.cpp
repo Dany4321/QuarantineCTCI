@@ -30,7 +30,18 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	Chapter3::QueueViaStacks();
+	MyStack<int> stack;
+	stack.Push(1);
+	stack.Push(2);
+	stack.Push(3);
+	stack.Push(4);
+	stack.Push(5);
+	stack.Push(2);
+	stack.Push(0);
+	stack.Push(68);
+	stack.Push(40);
+
+	Chapter3::SortStack(stack);
 		system("pause");
 }
 

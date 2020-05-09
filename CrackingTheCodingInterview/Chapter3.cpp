@@ -1,8 +1,5 @@
 #include "Chapter3.h"
-#include "ThreeStacksInOne.h"
-#include "MyStack.h"
-#include "SetOfStacks.h"
-#include "QueueByStacks.h"
+
 void Chapter3:: ThreeInOne() {
 	ThreeStacksInOne<int> tripleStack;
 	tripleStack.Push1(1);
@@ -77,6 +74,7 @@ void Chapter3::StackOfPlates() {
 	set.Pop();
 }
 void  Chapter3::QueueViaStacks() {
+	// Check the class QueueByStacks to see my implementation
 	QueueByStacks<int> stack;
 	stack.Add(1);
 	stack.Add(2);
@@ -89,4 +87,29 @@ void  Chapter3::QueueViaStacks() {
 	stack.Pop();
 	res = stack.Peek();
 	stack.Pop();
+}
+void  Chapter3::SortStack(MyStack<int>& stack) {
+	MyStack<int> tmpStack;
+	while (!stack.IsEmpty()) {
+		int top = stack.Top();
+		stack.Pop();
+		InsertValueInOrderedStack(top, tmpStack);
+	}
+	stack = tmpStack;
+}
+void  Chapter3::InsertValueInOrderedStack(int val, MyStack<int>& stack) {
+	if (stack.IsEmpty()) {
+		stack.Push(val);
+	}
+	else {
+		if (val > stack.Top()) {
+			int top = stack.Top();
+			stack.Pop();
+			InsertValueInOrderedStack(val, stack);
+			InsertValueInOrderedStack(top, stack);
+		}
+		else {
+			stack.Push(val);
+		}
+	}
 }
