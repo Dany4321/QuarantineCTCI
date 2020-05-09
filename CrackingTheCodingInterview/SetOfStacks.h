@@ -29,6 +29,17 @@ public:
 			}
 		}
 	}
+	void PopAt(int index) {
+		if (this->_currentStacks != nullptr) {
+			MyNode<MyStack<T>*>* node = this->_currentStacks;
+			while (index > 0 && node != nullptr) {
+				node = node->GetPrevious();
+			}
+			if (node != nullptr) {
+				node->GetValue()->Pop();
+			}
+		}
+	}
 	void Push(T value) {
 		if (this->_currentStacks->GetValue()->_count == this->_treshold) {
 			MyStack<T>* stack = new MyStack<T>();
