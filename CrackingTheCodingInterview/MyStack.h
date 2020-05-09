@@ -1,9 +1,10 @@
 #pragma once
 #include"MyNode.h"
-
 using namespace std;
+template <typename T> class SetOfStacks;
 template<class T>
 class MyStack {
+	friend class SetOfStacks<T>;
 public:
 	MyStack() {
 	}
@@ -24,6 +25,7 @@ public:
 				this->_min = this->_min->GetPrevious();
 			}
 			this->_currentNode = this->_currentNode->GetNext();
+			--_count;
 		}
 	}
 	void Push(T value) {
@@ -44,6 +46,7 @@ public:
 			node->SetNext(this->_currentNode);
 			this->_currentNode = node;
 		}
+		++_count;
 	}
 	bool IsEmpty() {
 		return (this->_currentNode == nullptr);
@@ -54,4 +57,5 @@ public:
 private:
 	MyNode<T>* _currentNode = nullptr;
 	MyNode<T>* _min = nullptr;
+	long _count = 0;
 };

@@ -1,6 +1,7 @@
 #include "Chapter3.h"
 #include "ThreeStacksInOne.h"
 #include "MyStack.h"
+#include "SetOfStacks.h"
 void Chapter3:: ThreeInOne() {
 	ThreeStacksInOne<int> tripleStack;
 	tripleStack.Push1(1);
@@ -56,6 +57,21 @@ void Chapter3::StackMin() {
 	stack.Pop();
 	stack.Pop();
 	int min2 = stack.GetMin();
+}
 
-
+void Chapter3::StackOfPlates() {
+	// it works ! I have checked the states of the set while debugging
+	SetOfStacks<int> set = SetOfStacks<int>(2);
+	set.Push(1);
+	set.Push(2);
+	set.Push(3);
+	set.Push(4);
+	set.Push(5);
+	set.Push(6);
+	set.Pop();
+	set.Pop();
+	set.Pop();
+	set.Pop();
+	set.Pop();
+	set.Pop();
 }

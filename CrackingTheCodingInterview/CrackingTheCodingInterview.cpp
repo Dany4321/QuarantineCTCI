@@ -30,7 +30,7 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	Chapter3::StackMin();
+	Chapter3::StackOfPlates();
 		system("pause");
 }
 

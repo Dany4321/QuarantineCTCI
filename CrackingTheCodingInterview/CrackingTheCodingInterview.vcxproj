@@ -173,6 +173,7 @@
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyStringBuilder.h" />
+    <ClInclude Include="SetOfStacks.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
     <ClInclude Include="TestLinkedList.h" />
     <ClInclude Include="TestMyArray.h" />

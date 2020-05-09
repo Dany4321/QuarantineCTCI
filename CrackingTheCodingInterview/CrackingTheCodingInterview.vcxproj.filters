@@ -107,5 +107,8 @@
     <ClInclude Include="ThreeStacksInOne.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
+    <ClInclude Include="SetOfStacks.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
