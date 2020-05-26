@@ -9,6 +9,7 @@ public:
 	}
 	BinarySearchTree(T root) {
 		this->_root = new  BinaryTreeNode<T>(root);
+		this->_lastInserted = this->_root;
 	}
 	BinaryTreeNode<T>& GetRoot()const {
 		return this->_root;
@@ -29,12 +30,18 @@ public:
 		}
 		return result;
 	}
-	 void InsertValue(T value) {
-		this->_root->AppendNode(value);
+	void  InsertValue(T value) {
+		this->_lastInserted =  this->_root->AppendNode(value);
 	}
 	 void InsertNode(BinaryTreeNode<T>* node) {
-		this->_root->AppendNode(node);
+		 if (node != nullptr) {
+			 this->_root->AppendNode(node);
+			 this->_lastInserted = node;
+		 }
 	}
+	 BinaryTreeNode<T>* GetPreviousInserted() {
+		 return this->_lastInserted;
+	 }
 	 void RemoveNode(BinaryTreeNode<T>* node) {
 		// If the node doesnt have children we simply remove it from the tree
 		if (node->_leftChild == nullptr && node->_rightChild == nullptr) {
@@ -185,4 +192,5 @@ public:
 	}
 private:
 	BinaryTreeNode<T>* _root = nullptr;
+	BinaryTreeNode<T>* _lastInserted = nullptr;
 };

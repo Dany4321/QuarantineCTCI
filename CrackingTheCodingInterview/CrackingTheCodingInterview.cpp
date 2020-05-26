@@ -43,7 +43,7 @@ int main()
 	stack.Push(40);
 
 	MyStack<int>* res =Chapter3::SortStack(stack);*/
-	TestBST::AddTest();
+	TestBST::RunAllTests();
 		system("pause");
 }
 

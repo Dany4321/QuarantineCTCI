@@ -10,14 +10,15 @@ public:
 
 	}
 	~BinaryTreeNode() {
-		delete this->_leftChild;
-		delete this->_rightChild;
+		//delete this->_leftChild;
+		//delete this->_rightChild;
 		this->_leftChild = nullptr;
 		this->_rightChild = nullptr;
 	}
-	virtual void AppendNode(T value) {
+	virtual BinaryTreeNode* AppendNode(T value) {
 		BinaryTreeNode* tmp = new  BinaryTreeNode(value);
 		AppendNode(tmp);
+		return tmp;
 	}
 	virtual void AppendNode(BinaryTreeNode* node) {
 		if (this->_value <= node->_value) {
