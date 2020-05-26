@@ -77,13 +77,13 @@ protected:
 	    MyStringBuilder* toString(MyStringBuilder* prefix, bool isTail, MyStringBuilder* sb) {
 		if (this->_rightChild != nullptr) {
 			MyStringBuilder* tmp1 = new MyStringBuilder();
-			this->_rightChild->toString(tmp1->Append(prefix->ToString())->Append(isTail ? "|   " : "    "), false, sb);
+			this->_rightChild->toString(tmp1->Append(prefix->ToString())->Append(isTail ? "!   " : "    "), false, sb);
 			delete tmp1;
 		}
-		sb->Append(prefix->ToString())->Append(isTail ? "└── " : "┌── ")->Append(std::to_string(this->_value))->Append("\n");
+		sb->Append(prefix->ToString())->Append("--- ")->Append(std::to_string(this->_value))->Append("\n");
 		if (this->_leftChild != nullptr) {
 			MyStringBuilder* tmp2 = new MyStringBuilder();
-			this->_leftChild->toString(tmp2->Append(prefix->ToString())->Append(isTail ? "    " : "│   "), true, sb);
+			this->_leftChild->toString(tmp2->Append(prefix->ToString())->Append(isTail ? "    " : "!   "), true, sb);
 			delete tmp2;
 		}
 		return sb;
