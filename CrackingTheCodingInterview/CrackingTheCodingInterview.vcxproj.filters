@@ -57,6 +57,9 @@
     <ClCompile Include="Chapter3.cpp">
       <Filter>Chapters\Algos\Exercices</Filter>
     </ClCompile>
+    <ClCompile Include="TestBST.cpp">
+      <Filter>Chapters\Algos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringPermutationsSearch.h">
@@ -112,6 +115,27 @@
     </ClInclude>
     <ClInclude Include="QueueByStacks.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Visitor.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Visited.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="MyBinarySearchTree.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeNode.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="AVLTreeNode.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="MyAVLTree.h">
+      <Filter>Chapters\Algos\MyDataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBST.h">
+      <Filter>Chapters\Algos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ class MyStringBuilder {
 public :
 	MyStringBuilder();
 	~MyStringBuilder();
-	void Append(string s);
+	MyStringBuilder* Append(string s);
 	string ToString();
 	void Clear();
 private:

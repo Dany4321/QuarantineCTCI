@@ -9,7 +9,7 @@ MyStringBuilder::~MyStringBuilder() {
 	this->Clear();
 }
 
-void MyStringBuilder::Append(string s) {
+MyStringBuilder* MyStringBuilder::Append(string s) {
 	if (this->_root == nullptr && this->_last == nullptr) {
 		this->_root = new CustomString(s);
 		this->_last = _root;
@@ -18,7 +18,9 @@ void MyStringBuilder::Append(string s) {
 		this->_last = this->_last->AddString(s);
 	}
 	this->_size += this->_last->GetSize();
+	return this;
 }
+
 void MyStringBuilder::Clear() {
 	CustomString* current = this->_root;
 	while (current != nullptr) {

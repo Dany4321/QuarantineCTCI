@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -157,15 +157,19 @@
     <ClCompile Include="Chapter1.cpp" />
     <ClCompile Include="MyStringBuilder.cpp" />
     <ClCompile Include="StringPermutationsSearch.cpp" />
+    <ClCompile Include="TestBST.cpp" />
     <ClCompile Include="TestLinkedList.cpp" />
     <ClCompile Include="TestMyArray.cpp" />
     <ClCompile Include="TestStringBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyAVLTree.h" />
+    <ClInclude Include="AVLTreeNode.h" />
     <ClInclude Include="Chapter1.h" />
     <ClInclude Include="Chapter2.h" />
     <ClInclude Include="Chapter3.h" />
     <ClInclude Include="MyArray.h" />
+    <ClInclude Include="MyBinarySearchTree.h" />
     <ClInclude Include="MyHashTable.h" />
     <ClInclude Include="MyLinkedList.h" />
     <ClInclude Include="MyListIterator.h" />
@@ -173,6 +177,8 @@
     <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyStringBuilder.h" />
+    <ClInclude Include="TestBST.h" />
+    <ClInclude Include="Visitor.h" />
     <ClInclude Include="QueueByStacks.h" />
     <ClInclude Include="SetOfStacks.h" />
     <ClInclude Include="StringPermutationsSearch.h" />
@@ -180,6 +186,8 @@
     <ClInclude Include="TestMyArray.h" />
     <ClInclude Include="TestStringBuilder.h" />
     <ClInclude Include="ThreeStacksInOne.h" />
+    <ClInclude Include="BinaryTreeNode.h" />
+    <ClInclude Include="Visited.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

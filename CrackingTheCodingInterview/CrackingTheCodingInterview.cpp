@@ -7,6 +7,7 @@
 #include "TestStringBuilder.h"
 #include "Chapter3.h"
 #include "TestLinkedList.h"
+#include "TestBST.h"
 int main()
 {
 	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
@@ -30,7 +31,7 @@ int main()
 		 }
 		 cout << endl;
 	 }*/
-	MyStack<int> stack;
+	/*MyStack<int> stack;
 	stack.Push(1);
 	stack.Push(2);
 	stack.Push(3);
@@ -41,7 +42,8 @@ int main()
 	stack.Push(68);
 	stack.Push(40);
 
-	MyStack<int>* res =Chapter3::SortStack(stack);
+	MyStack<int>* res =Chapter3::SortStack(stack);*/
+	TestBST::AddTest();
 		system("pause");
 }
 

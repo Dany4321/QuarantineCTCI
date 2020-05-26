@@ -24,6 +24,14 @@ public:
 			--this->_size;
 		}
 	}
+	void RemoveFirst(T value) {
+		for (int i = 0; i < this->_size; i++) {
+			if (this->_array[i] == value) {
+				this->RemoveAt(i);
+				return;
+			}
+		}
+	}
 	void InsertAt(T element, int index) {
 		if (index < this->_size && index >=0) {
 			this->ReallocateArrayIfNeeded();
