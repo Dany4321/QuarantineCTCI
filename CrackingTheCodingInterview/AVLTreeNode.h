@@ -1,38 +1,43 @@
 #pragma once
 #include "BinaryTreeNode.h"
+template <typename T> class MyAVLTree;
 template<typename T>
 class AVLTreeNode : public BinaryTreeNode<T> {
+	friend class MyAVLTree<T>;
 public:
-	AVLTreeNode(AVLTreeNode<T>* parent, T value) {
+	AVLTreeNode() {
+		this->_parent = nullptr;
+		this->_value = 0;
+	}
+	AVLTreeNode(AVLTreeNode<T>* parent, T value):BinaryTreeNode<T>(value){
 		this->_parent;
-		this->_value = value;
 	}
 	~AVLTreeNode() {
 		this->_parent = nullptr;
 	}
-	
-	void AppendNode(T value) override {
-		AVLTreeNode* tmp = new AVLTreeNode(this,value);
+	BinaryTreeNode<T>* AppendNode(T value) override {
+		AVLTreeNode<T>* tmp = new AVLTreeNode<T>(this,value);
 		AppendNode(tmp);
+		return tmp;
 	}
-	void AppendNode(AVLTreeNode* node) override {
-		if (this->_value <= node->_value) {
+	void AppendNode(BinaryTreeNode<T>* node) override {
+		if (this->_value <= ((AVLTreeNode<T>*)node)->_value) {
 			if (this->_rightChild != nullptr) {
-				this->_rightChild->AppendNode(tmp);
+				this->_rightChild->AppendNode(node);
 			}
 			else {
-				this->_rightChild = tmp;
-				this->_rightChild->_parent = this;
+				this->_rightChild = node;
+				((AVLTreeNode<T>*)this->_rightChild)->_parent = this;
 				this->IncreaseRightHeight();
 			}
 		}
 		else {
 			if (this->_leftChild != nullptr) {
-				this->_leftChild->AppendNode(tmp);
+				this->_leftChild->AppendNode(node);
 			}
 			else {
-				this->_leftChild = tmp;
-				this->_leftChild->_parent = this;
+				this->_leftChild = node;
+				((AVLTreeNode<T>*)this->_leftChild)->_parent = this;
 				this->IncreaseLeftHeight();
 			}
 		}

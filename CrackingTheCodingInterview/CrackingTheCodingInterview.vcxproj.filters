@@ -28,6 +28,9 @@
     <Filter Include="Chapters\Algos\Exercices">
       <UniqueIdentifier>{0f39bf01-13f1-4d3e-bde5-5d2be7e97d83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Chapters\Algos\Tests">
+      <UniqueIdentifier>{69762b30-ce1d-4dba-9b44-a362673a0610}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp">
@@ -36,20 +39,11 @@
     <ClCompile Include="StringPermutationsSearch.cpp">
       <Filter>Chapters\TechnicalQuestions</Filter>
     </ClCompile>
-    <ClCompile Include="TestMyArray.cpp">
-      <Filter>Chapters\Algos</Filter>
-    </ClCompile>
     <ClCompile Include="MyStringBuilder.cpp">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClCompile>
-    <ClCompile Include="TestStringBuilder.cpp">
-      <Filter>Chapters\Algos</Filter>
-    </ClCompile>
     <ClCompile Include="Chapter1.cpp">
       <Filter>Chapters\Algos\Exercices</Filter>
-    </ClCompile>
-    <ClCompile Include="TestLinkedList.cpp">
-      <Filter>Chapters\Algos</Filter>
     </ClCompile>
     <ClCompile Include="Chapter2.cpp">
       <Filter>Chapters\Algos\Exercices</Filter>
@@ -57,8 +51,20 @@
     <ClCompile Include="Chapter3.cpp">
       <Filter>Chapters\Algos\Exercices</Filter>
     </ClCompile>
+    <ClCompile Include="TestAVL.cpp">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClCompile>
     <ClCompile Include="TestBST.cpp">
-      <Filter>Chapters\Algos</Filter>
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLinkedList.cpp">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMyArray.cpp">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestStringBuilder.cpp">
+      <Filter>Chapters\Algos\Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,12 +80,6 @@
     <ClInclude Include="MyArray.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
-    <ClInclude Include="TestMyArray.h">
-      <Filter>Chapters\Algos</Filter>
-    </ClInclude>
-    <ClInclude Include="TestStringBuilder.h">
-      <Filter>Chapters\Algos</Filter>
-    </ClInclude>
     <ClInclude Include="Chapter1.h">
       <Filter>Chapters\Algos\Exercices</Filter>
     </ClInclude>
@@ -88,9 +88,6 @@
     </ClInclude>
     <ClInclude Include="MyLinkedList.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
-    </ClInclude>
-    <ClInclude Include="TestLinkedList.h">
-      <Filter>Chapters\Algos</Filter>
     </ClInclude>
     <ClInclude Include="MyNode.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
@@ -134,8 +131,20 @@
     <ClInclude Include="MyAVLTree.h">
       <Filter>Chapters\Algos\MyDataStructures</Filter>
     </ClInclude>
+    <ClInclude Include="TestStringBuilder.h">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestAVL.h">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClInclude>
     <ClInclude Include="TestBST.h">
-      <Filter>Chapters\Algos</Filter>
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLinkedList.h">
+      <Filter>Chapters\Algos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMyArray.h">
+      <Filter>Chapters\Algos\Tests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
