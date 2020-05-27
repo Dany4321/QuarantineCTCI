@@ -36,9 +36,26 @@ void TestBST::RemoveTest() {
 	tree.Print();
 }
 void TestBST::SucessorTest() {
-
+	BinarySearchTree<int> tree = BinarySearchTree<int>(10);
+	
+	tree.InsertValue(5);
+	tree.InsertValue(2);
+	tree.InsertValue(6);
+	
+	tree.InsertValue(15);
+	
+	tree.InsertValue(12);
+	tree.InsertValue(16);
+	tree.InsertValue(18);
+	tree.InsertValue(40);
+	tree.InsertValue(14);
+	BinaryTreeNode<int>* node = tree.GetPreviousInserted();
+	tree.InsertValue(13);
+	tree.Print();
+	cout << "Successeur de 14 "<<tree.FindSuccessor(node)->GetValue() << endl;
 }
 void TestBST::RunAllTests() {
 	//AddTest();
-	RemoveTest();
+	//RemoveTest();
+	SucessorTest();
 }

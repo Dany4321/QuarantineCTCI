@@ -1,6 +1,7 @@
 #pragma once
 #include "BinaryTreeNode.h"
 #include "MyStack.h"
+#include "Visitor.h"
 template<class T>
 class BinarySearchTree {
 public:
@@ -10,6 +11,15 @@ public:
 	BinarySearchTree(T root) {
 		this->_root = new  BinaryTreeNode<T>(root);
 		this->_lastInserted = this->_root;
+	}
+	~BinarySearchTree() {
+		std::function<void(Visited<T>*)> func = [](Visited<T>* visited)
+		{ 
+			delete  (BinaryTreeNode<T>*)visited;
+			visited = nullptr;
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		this->_root->PostOrderVisit(visitor);
 	}
 	BinaryTreeNode<T>& GetRoot()const {
 		return this->_root;

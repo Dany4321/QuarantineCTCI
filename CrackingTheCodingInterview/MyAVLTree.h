@@ -5,7 +5,23 @@ template<typename T>
 class MyAVLTree {
 public:
 	MyAVLTree(T rootValue) {
-		this->_root = AVLTreeNode<T>(nullptr, rootValue);
+		this->_root =  new AVLTreeNode<T>(nullptr, rootValue);
+	}
+	MyAVLTree() {
+		this->_root = nullptr;
+	}
+	~MyAVLTree() {
+		std::function<void(Visited<T>*)> func = [](Visited<T>* visited)
+		{
+			delete  (AVLTreeNode<T>*)visited;
+			visited = nullptr;
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		//visitor.Visit = func;
+		this->_root->PostOrderVisit(visitor);
+	}
+	setRoot(T value) {
+		this->_root = new AVLTreeNode<T>(nullptr, value);
 	}
 	bool IsABinarySearchTree(const AVLTreeNode<T>& node) const { // O(n)
 		if (node._leftChild != nullptr && node._leftChild->_value > this->_value) {
@@ -15,10 +31,10 @@ public:
 			return false;
 		}
 		bool result = true;
-		if (this->_root._leftChild != nullptr) {
+		if (this->_root->_leftChild != nullptr) {
 			result &= IsABinarySearchTree(node._leftChild);
 		}
-		if (result && this->_root._rightChild != nullptr) {
+		if (result && this->_root->_rightChild != nullptr) {
 			result &= IsABinarySearchTree(node._rightChild);
 		}
 		return result;
@@ -31,10 +47,10 @@ public:
 			return false;
 		}
 		bool result = true;
-		if (this->_root._leftChild != nullptr) {
+		if (this->_root->_leftChild != nullptr) {
 			result &= IsABinarySearchTree(node._leftChild);
 		}
-		if (result && this->_root._rightChild != nullptr) {
+		if (result && this->_root->_rightChild != nullptr) {
 			result &= IsABinarySearchTree(node._rightChild);
 		}
 		return result;
@@ -170,5 +186,5 @@ private:
 			}
 		}
 	}
-	AVLTreeNode<T> _root;
+	AVLTreeNode<T>* _root;
 };

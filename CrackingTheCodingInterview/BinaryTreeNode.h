@@ -10,8 +10,6 @@ public:
 
 	}
 	~BinaryTreeNode() {
-		//delete this->_leftChild;
-		//delete this->_rightChild;
 		this->_leftChild = nullptr;
 		this->_rightChild = nullptr;
 	}
@@ -19,6 +17,9 @@ public:
 		BinaryTreeNode* tmp = new  BinaryTreeNode(value);
 		AppendNode(tmp);
 		return tmp;
+	}
+	T GetValue() {
+		return this->_value;
 	}
 	virtual void AppendNode(BinaryTreeNode* node) {
 		if (this->_value <= node->_value) {
@@ -38,22 +39,22 @@ public:
 			}
 		}
 	}
-	void PreOrderVisit(Visitor<T> visitor) {
-		if (this->_leftChild != nullptr) {
-			this->_leftChild->PreOrderVisit(visitor);
-		}
-		if (this->_rightChild != nullptr) {
-			this->_rightChild->PreOrderVisit(visitor);
-		}
-		this->Accept(visitor);
-	}
 	void PostOrderVisit(Visitor<T> visitor) {
-		this->Accept(visitor);
 		if (this->_leftChild != nullptr) {
 			this->_leftChild->PostOrderVisit(visitor);
 		}
 		if (this->_rightChild != nullptr) {
 			this->_rightChild->PostOrderVisit(visitor);
+		}
+		this->Accept(visitor);
+	}
+	void PreOrderVisit(Visitor<T> visitor) {
+		this->Accept(visitor);
+		if (this->_leftChild != nullptr) {
+			this->_leftChild->PreOrderVisit(visitor);
+		}
+		if (this->_rightChild != nullptr) {
+			this->_rightChild->PreOrderVisit(visitor);
 		}
 	}
 	void InOrderVisit(Visitor<T> visitor) {
