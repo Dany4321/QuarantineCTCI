@@ -23,85 +23,50 @@ public:
 	void AppendNode(BinaryTreeNode<T>* node) override {
 		if (this->_value <= ((AVLTreeNode<T>*)node)->_value) {
 			if (this->_rightChild != nullptr) {
-				this->_rightChild->AppendNode(node);
+				((AVLTreeNode<T>*)this->_rightChild)->AppendNode(node);
 			}
 			else {
 				this->_rightChild = node;
 				((AVLTreeNode<T>*)this->_rightChild)->_parent = this;
-				this->IncreaseRightHeight();
 			}
 		}
 		else {
 			if (this->_leftChild != nullptr) {
-				this->_leftChild->AppendNode(node);
+				((AVLTreeNode<T>*)this->_leftChild)->AppendNode(node);
 			}
 			else {
 				this->_leftChild = node;
 				((AVLTreeNode<T>*)this->_leftChild)->_parent = this;
-				this->IncreaseLeftHeight();
 			}
 		}
+	}
+	int GetHeight() {
+		int l = 1;
+		int r = 1;
+		if (this->_leftChild != nullptr) {
+			l += ((AVLTreeNode<T>*)this->_leftChild)->GetHeight() ;
+		}
+		if (this->_rightChild != nullptr) {
+			r += ((AVLTreeNode<T>*)this->_rightChild)->GetHeight() ;
+		}
+		if (l > r) {
+			return l;
+		}
+		return r;
 	}
 	bool IsBalanced() {
-		return abs(this->leftHeight - this->rightHeight) < 2;
+		AVLTreeNode<T>* tmpL = (AVLTreeNode<T>*)this->_leftChild;
+		int Lcounter = 0;
+		if (tmpL != nullptr) {
+			Lcounter =  tmpL->GetHeight();
+		}
+		AVLTreeNode<T>* tmpR = (AVLTreeNode<T>*)this->_rightChild;
+		int Rcounter = 0;
+		if (tmpR != nullptr) {
+			Rcounter =  tmpR->GetHeight();
+		}
+		return abs(Rcounter - Lcounter) < 2;
 	}
 private:
-	void IncreaseLeftHeight() {
-		++this->leftHeight;
-		if (this->_parent != nullptr) {
-			if (this->_parent->_leftChild == this) {
-				this->_parent->IncreaseLeftHeight();
-			}
-			else {
-				this->_parent->IncreaseRightHeight();
-			}
-		}
-	}
-	void IncreaseRightHeight() {
-		++this->rightHeight;
-		if (this->_parent != nullptr) {
-			if (this->_parent->_leftChild == this) {
-				this->_parent->IncreaseLeftHeight();
-			}
-			else {
-				this->_parent->IncreaseRightHeight();
-			}
-		}
-	}
-	void DecreaseLeftHeight() {
-		if (this->leftHeight > 0) {
-			--this->leftHeight;
-		}
-		else {
-			return;
-		}
-		if (this->_parent != nullptr) {
-			if (this->_parent->_leftChild == this) {
-				this->_parent->DecreaseLeftHeight();
-			}
-			else {
-				this->_parent->DecreaseRightHeight();
-			}
-		}
-	}
-	void DecreaseRightHeight() {
-		if (this->rightHeight > 0) {
-			--this->rightHeight;
-		}
-		else {
-			return;
-		}
-		if (this->_parent != nullptr) {
-			if (this->_parent->_leftChild == this) {
-				this->_parent->DecreaseLeftHeight();
-			}
-			else {
-				this->_parent->DecreaseRightHeight();
-			}
-		}
-	}
-
-	int leftHeight = 0;
-	int rightHeight = 0;
 	AVLTreeNode<T>* _parent = nullptr;
 };
