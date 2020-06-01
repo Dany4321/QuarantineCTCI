@@ -80,10 +80,6 @@ public:
 		return res;
 
 	}
-	void InsertNode(AVLTreeNode<T>* node) {
-		this->_root.AppendNode(node);
-		Rebalance(node);
-	}
     // https://www.youtube.com/watch?v=g4y2h70D6Nk
 	//http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Trees/AVL-delete.html
 	void RemoveNode(AVLTreeNode<T>* node) {
