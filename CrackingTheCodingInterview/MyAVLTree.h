@@ -257,18 +257,8 @@ private:
 		AVLTreeNode<T>* tmp = node;
 		bool balanced = true;
 		if (tmp != nullptr) {
-			std::map< AVLTreeNode<T>*, bool>parentsTracking;
-			parentsTracking.insert(pair<AVLTreeNode<T>*, bool>(tmp, false));
 			while (tmp != nullptr && balanced) {
 				balanced = tmp->IsBalanced();
-				auto it = parentsTracking.find(tmp->_parent);
-				if (it != parentsTracking.end()) {
-					int i = 0;
-					cout << "Loop spotted !" << endl;
-				}
-				else {
-					parentsTracking.insert(pair<AVLTreeNode<T>*, bool>(tmp->_parent, false));
-				}
 				if (balanced) {
 					tmp = tmp->_parent;
 				}
@@ -322,9 +312,7 @@ private:
 					this->LeftRotation(tmp);
 					this->Rebalance(tmp);
 				}
-				UpdateRoot(node); if (true) {
-					
-				}
+				UpdateRoot(node);
 			}
 		}
 	}

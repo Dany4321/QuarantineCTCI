@@ -53,7 +53,6 @@ public:
 		}
 	}
 	int GetHeight() {
-//		cout << "Get Height" << this << endl;
 		int l = 1;
 		int r = 1;
 		if (this->_leftChild != nullptr) {
