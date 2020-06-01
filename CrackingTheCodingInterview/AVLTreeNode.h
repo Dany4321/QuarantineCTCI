@@ -15,32 +15,45 @@ public:
 	~AVLTreeNode() {
 		this->_parent = nullptr;
 	}
+	void SetParent(AVLTreeNode<T>* parent) {
+		this->_parent = parent;
+		if (parent != nullptr) {
+			if (parent->_value > this->_value) {
+				this->_parent->_leftChild = this;
+			}
+			else {
+				this->_parent->_rightChild = this;
+			}
+		}
+	}
 	BinaryTreeNode<T>* AppendNode(T value) override {
 		AVLTreeNode<T>* tmp = new AVLTreeNode<T>(this,value);
 		AppendNode(tmp);
 		return tmp;
 	}
 	void AppendNode(BinaryTreeNode<T>* node) override {
-		if (this->_value <= ((AVLTreeNode<T>*)node)->_value) {
+		if (this->_value < ((AVLTreeNode<T>*)node)->_value) {
 			if (this->_rightChild != nullptr) {
 				((AVLTreeNode<T>*)this->_rightChild)->AppendNode(node);
 			}
 			else {
-				this->_rightChild = node;
-				((AVLTreeNode<T>*)this->_rightChild)->_parent = this;
+				((AVLTreeNode<T>*)node)->SetParent(this);
 			}
+		}
+		else if (this->_value == ((AVLTreeNode<T>*)node)->_value) {
+			this->nbOccurence++;
 		}
 		else {
 			if (this->_leftChild != nullptr) {
 				((AVLTreeNode<T>*)this->_leftChild)->AppendNode(node);
 			}
 			else {
-				this->_leftChild = node;
-				((AVLTreeNode<T>*)this->_leftChild)->_parent = this;
+				((AVLTreeNode<T>*)node)->SetParent(this);
 			}
 		}
 	}
 	int GetHeight() {
+//		cout << "Get Height" << this << endl;
 		int l = 1;
 		int r = 1;
 		if (this->_leftChild != nullptr) {
@@ -65,8 +78,21 @@ public:
 		if (tmpR != nullptr) {
 			Rcounter =  tmpR->GetHeight();
 		}
-		return abs(Rcounter - Lcounter) < 2;
+		return abs(Lcounter - Rcounter) < 2;
+	}
+	AVLTreeNode<T>* GetLeftChild() const {
+		return (AVLTreeNode<T>*)this->_leftChild;
+	}
+	AVLTreeNode<T>* GetRightChild() const {
+		return (AVLTreeNode<T>*)this->_rightChild;
+	}
+	AVLTreeNode<T>* GetParent() const {
+		return (AVLTreeNode<T>*)this->_parent;
+	}
+	int GetNbOccurence() const{
+		return this->nbOccurence;
 	}
 private:
 	AVLTreeNode<T>* _parent = nullptr;
+	int nbOccurence = 1;
 };

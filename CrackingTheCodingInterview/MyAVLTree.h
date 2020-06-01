@@ -1,8 +1,10 @@
 #pragma once
 #include "AVLTreeNode.h"
+#include <map>
 #include "MyStack.h"
 template<typename T>
 class MyAVLTree {
+	friend class TestAVL;
 public:
 	MyAVLTree(T rootValue) {
 		this->_root =  new AVLTreeNode<T>(nullptr, rootValue);
@@ -38,27 +40,45 @@ public:
 		}
 		return result;
 	}
-	bool IsAnAVL(const AVLTreeNode<T>& node) const { // O(n)
-		if (node._leftChild != nullptr && node._leftChild->_value > this->_value) {
-			return false;
+	int Count() {
+		AVLTreeNode<T>* node = this->_root;
+		int c = 0;
+		std::function<void(Visited<T>*)> func = [&c](Visited<T>* visited)
+		{
+			AVLTreeNode<T>* node =(AVLTreeNode<T>*)visited;
+			if (visited != nullptr) {
+				c += node->GetNbOccurence();
+			}
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		this->_root->PostOrderVisit(visitor);
+		return c;
+	}
+	bool IsAnAVL() const { // O(n)
+		AVLTreeNode<T>* node = this->_root;
+		MyStack< AVLTreeNode<T>*> nodeStack;
+		std::map< AVLTreeNode<T>*, int> previousHeights;
+		node->IsBalanced();
+		std::function<void(Visited<T>*)> func = [&nodeStack](Visited<T>* visited)
+		{
+			if (visited != nullptr) {
+				nodeStack.Push((AVLTreeNode<T>*)visited);
+			}
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		this->_root->PostOrderVisit(visitor);
+		while (!nodeStack.IsEmpty() && nodeStack.Top()->IsBalanced()) {
+			nodeStack.Pop();
 		}
-		if (node._rightChild != nullptr && node._rightChild->_value < this->_value) {
-			return false;
-		}
-		bool result = true;
-		if (this->_root->_leftChild != nullptr) {
-			result &= IsABinarySearchTree(node._leftChild);
-		}
-		if (result && this->_root->_rightChild != nullptr) {
-			result &= IsABinarySearchTree(node._rightChild);
-		}
-		return result;
+		return nodeStack.IsEmpty();
 	}
 	AVLTreeNode<T>* InsertValue(T value) {
 		AVLTreeNode<T>* res = (AVLTreeNode<T>*)this->_root->AppendNode(value);
 		this->_lastInserted = res;
 		Rebalance(res);
+		this->ParentLinksUpdate();
 		return res;
+
 	}
 	void InsertNode(AVLTreeNode<T>* node) {
 		this->_root.AppendNode(node);
@@ -67,6 +87,9 @@ public:
     // https://www.youtube.com/watch?v=g4y2h70D6Nk
 	//http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Trees/AVL-delete.html
 	void RemoveNode(AVLTreeNode<T>* node) {
+		--(node->nbOccurence);
+		if (node->nbOccurence > 0)
+			return;
 		AVLTreeNode<T>* parent = node->_parent;
 		// If the node doesnt have children we simply remove it from the tree
 		if (node->_leftChild == nullptr && node->_rightChild == nullptr) {
@@ -178,90 +201,130 @@ private:
 		this->_root = tmp;
 	}
 	void RightRotation(AVLTreeNode<T>* node) {
-		if (node->_leftChild == nullptr)
-			return;
 		AVLTreeNode<T>* tmp = (AVLTreeNode<T>*)node->_leftChild;
 		node->_leftChild = nullptr;
-		tmp->_parent = node->_parent;
-		if (tmp->_parent != nullptr) {
-			if (tmp->_value < tmp->_parent->_value) {
-				tmp->_parent->_leftChild = tmp;
-			}
-			else {
-				tmp->_parent->_rightChild = tmp;
-			}
-		}
+		tmp->SetParent(node->_parent);
 		node->_leftChild = tmp->_rightChild;
 		tmp->_rightChild = node;
-		node->_parent = tmp;
+		node->SetParent(tmp);
 	}
 	void LeftRotation(AVLTreeNode<T>* node) {
-		if (node->_rightChild == nullptr)
-			return;
 		AVLTreeNode<T>* tmp = (AVLTreeNode<T>*)node->_rightChild;
 		node->_rightChild = nullptr;
-		tmp->_parent = node->_parent;
-		if (tmp->_parent != nullptr) {
-			if (tmp->_value < tmp->_parent->_value) {
-				tmp->_parent->_leftChild = tmp;
-			}
-			else {
-				tmp->_parent->_rightChild = tmp;
-			}
-		}
+		tmp->SetParent(node->_parent);
 		node->_rightChild = tmp->_leftChild;
 		tmp->_leftChild = node;
-		node->_parent = tmp;
+		node->SetParent(tmp);
 	}
 	/*
 		I have watched this course : https://youtu.be/-9sHvAnLN_w?list=PLpPXw4zFa0uKKhaSz87IowJnOTzh9tiBk
 		and https://www.cise.ufl.edu/~nemo/cop3530/AVL-Tree-Rotations.pdf
 	*/
+	void loopSearch(AVLTreeNode<T>* node) {
+		std::map< AVLTreeNode<T>*, bool>parentsTracking;
+		std::function<void(Visited<T>*)> func = [&parentsTracking](Visited<T>* visited)
+		{
+			if (visited != nullptr) {
+				auto it = parentsTracking.find((AVLTreeNode<T>*)visited);
+				if (it != parentsTracking.end()) {
+					cout << "Loop spotted !" << endl;
+				}
+				else {
+					parentsTracking.insert(pair<AVLTreeNode<T>*, bool>((AVLTreeNode<T>*)visited, false));
+				}
+			}
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		this->_root->PostOrderVisit(visitor);
+	}
+	void ParentLinksUpdate() {
+		std::function<void(Visited<T>*)> func = [](Visited<T>* visited)
+		{
+			if (visited != nullptr) {
+				AVLTreeNode<T>* node = (AVLTreeNode<T>*)visited;
+				if (node->GetLeftChild() != nullptr) {
+					node->GetLeftChild()->SetParent(node);
+				}
+				if (node->GetRightChild() != nullptr) {
+					node->GetRightChild()->SetParent(node);
+				}
+			}
+		};
+		Visitor<T> visitor = Visitor<T>(func);
+		this->_root->PostOrderVisit(visitor);
+	}
 	void Rebalance(AVLTreeNode<T>* node) {
 		AVLTreeNode<T>* tmp = node;
 		bool balanced = true;
 		if (tmp != nullptr) {
+			std::map< AVLTreeNode<T>*, bool>parentsTracking;
+			parentsTracking.insert(pair<AVLTreeNode<T>*, bool>(tmp, false));
 			while (tmp != nullptr && balanced) {
 				balanced = tmp->IsBalanced();
+				auto it = parentsTracking.find(tmp->_parent);
+				if (it != parentsTracking.end()) {
+					int i = 0;
+					cout << "Loop spotted !" << endl;
+				}
+				else {
+					parentsTracking.insert(pair<AVLTreeNode<T>*, bool>(tmp->_parent, false));
+				}
 				if (balanced) {
 					tmp = tmp->_parent;
 				}
 			}
 			if (!balanced) {
-				// We check the grand parent of the problematic node
-				AVLTreeNode<T>* p = node->_parent;
-				if (p == nullptr)
-				{
-					return;
+				int LHeight = 0;
+				int RHeight = 0;
+				AVLTreeNode<T>* lChild = (AVLTreeNode<T>*)tmp->_leftChild;
+				if (lChild != nullptr) {
+					LHeight = lChild->GetHeight();
 				}
-				AVLTreeNode<T>* gp = p->_parent;
-				if (gp == nullptr)
-				{
-					return;
+				AVLTreeNode<T>* rChild = (AVLTreeNode<T>*)tmp->_rightChild;
+				if (rChild != nullptr) {
+					RHeight = rChild->GetHeight();
 				}
-				// if the grand parent left child left child is the node then we do a right rotation
-				if (((AVLTreeNode<T>*)gp->_leftChild)!= nullptr && ((AVLTreeNode<T>*)gp->_leftChild)->_leftChild == node) {
+				if ((LHeight - RHeight) > 1) {
+					AVLTreeNode<T>* llChild = (AVLTreeNode<T>*)lChild->_leftChild;
+					AVLTreeNode<T>* lrChild = (AVLTreeNode<T>*)lChild->_rightChild;
+					int llHeight = 0;
+					int lrHeight = 0;
+					if (lrChild != nullptr) {
+						lrHeight = lrChild->GetHeight();
+					}
+					if (llChild != nullptr) {
+						llHeight = llChild->GetHeight();
+					}
+					if ((llHeight - lrHeight) < 0) {
+						// left right rotate tmp'
+						AVLTreeNode<T>* k1 = (AVLTreeNode<T>*) tmp->_leftChild;
+						this->LeftRotation(k1);
+					}
 					this->RightRotation(tmp);
 					this->Rebalance(tmp);
 				}
-				// if the grand parent right child right child is the node then we do a left rotation
-				else if (((AVLTreeNode<T>*)gp->_rightChild) != nullptr && ((AVLTreeNode<T>*)gp->_rightChild)->_rightChild == node) {
+				else if ((LHeight - RHeight) < -1) {
+					AVLTreeNode<T>* rlChild = (AVLTreeNode<T>*)rChild->_leftChild;
+					AVLTreeNode<T>* rrChild = (AVLTreeNode<T>*)rChild->_rightChild;
+					int rlHeight = 0;
+					int rrHeight = 0;
+					if (rlChild != nullptr) {
+						rlHeight = rlChild->GetHeight();
+					}
+					if (rrChild != nullptr) {
+						rrHeight = rrChild->GetHeight();
+					}
+					if ((rlHeight - rrHeight) < -1) {
+						// right left rotate tmp
+						AVLTreeNode<T>* k3 = (AVLTreeNode<T>*)  tmp->_rightChild;
+						this->RightRotation(k3);
+					}
 					this->LeftRotation(tmp);
 					this->Rebalance(tmp);
 				}
-				// if the grand parent left child right child is the node then we do a left right rotation (left rotation of parent, right rotation of grand parent)
-				else if (((AVLTreeNode<T>*)gp->_leftChild) != nullptr && ((AVLTreeNode<T>*)gp->_leftChild)->_rightChild == node) {
-					this->LeftRotation((AVLTreeNode<T>*)gp->_leftChild);
-					this->RightRotation(gp);
-					this->Rebalance(gp);
+				UpdateRoot(node); if (true) {
+					
 				}
-				// if the grand parent right child left child is the node then we do a right left rotation (left rotation of parent, right rotation of grand parent)
-				else if (((AVLTreeNode<T>*)gp->_rightChild) != nullptr && ((AVLTreeNode<T>*)gp->_rightChild)->_leftChild == node) {
-					this->RightRotation((AVLTreeNode<T>*)gp->_rightChild);
-					this->LeftRotation(gp);
-					this->Rebalance(gp);
-				}
-				UpdateRoot(node);
 			}
 		}
 	}

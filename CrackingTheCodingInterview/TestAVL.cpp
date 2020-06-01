@@ -1,9 +1,25 @@
 #include "TestAVL.h"
+#include <random>     // mt19937 and uniform_int_distribution
+#include <algorithm>  // generate
+#include <vector>     // vector
+#include <iterator>   // begin, end, and ostream_iterator
+#include <functional> // bind
+#include <iostream>   // cout
 // https://stackoverflow.com/questions/3955680/how-to-check-if-my-avl-tree-implementation-is-correct
 void TestAVL::AddTest() {
 	////////////////////////
+	MyAVLTree<int>* tree = new MyAVLTree<int>(92);
+	tree->InsertValue(91);
+	tree->InsertValue(95);
+	tree->Print();
+	tree->InsertValue(96);
+	tree->Print();
+	tree->InsertValue(99);
+	tree->Print();
+	////////////////////////
 	int elems[2] = { 6, 8};
-	MyAVLTree<int>* tree = new MyAVLTree<int>(4);
+	delete tree;
+	tree = new MyAVLTree<int>(4);
 	for (int i = 0; i < 2; i++) {
 		tree->InsertValue(elems[i]);
 	}
@@ -34,8 +50,10 @@ void TestAVL::AddTest() {
 	for (int i = 0; i < 2; i++) {
 		tree->InsertValue(elems[i]);
 	}
+	
 	tree->Print();
 	////////////////////
+	// test case from http://www2.lawrence.edu/fast/GREGGJ/CMSC270/avl/avl.html
 	int finalElems[49] = { 
 67,
 34,
@@ -86,13 +104,31 @@ void TestAVL::AddTest() {
 11,
 53,
 68 };
-	// 41,
 	delete tree;
 	tree = new MyAVLTree<int>(41);
 	for (int i = 0; i < 49; i++) {
 		tree->InsertValue(finalElems[i]);
 	}
 	tree->Print();
+	cout <<" Is an AVL : "<< tree->IsAnAVL() << endl;
+	cout << tree->Count() << endl;
+	// random
+	std::random_device r;
+	std::seed_seq      seed{ r(), r(), r(), r(), r(), r(), r(), r() };
+	std::mt19937       eng(seed); // a source of random data
+
+	std::uniform_int_distribution<int> dist;
+	std::vector<int> v(1000);
+
+	generate(begin(v), end(v), bind(dist, eng));
+	delete tree;
+	tree = new MyAVLTree<int>(v[0]);
+	for (int i = 1; i < 1000; i++) {
+		tree->InsertValue(v[i]);
+	}
+	tree->Print();
+	cout << " Is an AVL : " << tree->IsAnAVL() << endl;
+	cout << tree->Count() << endl;
 }
 void TestAVL::RemoveTest() {
 	MyAVLTree<int> tree = MyAVLTree<int>(10);
@@ -134,13 +170,11 @@ void TestAVL::IsAnAVLTest() {
 	tree.InsertValue(18);
 	tree.InsertValue(40);
 	tree.InsertValue(14);
-	AVLTreeNode<int>* node = tree.GetPreviousInserted();
-	tree.InsertValue(13);
 	tree.Print();
-	cout << "Successeur de 14 " << tree.FindSuccessor(node)->GetValue() << endl;
+	cout << tree.IsAnAVL() << endl;
 }
 void TestAVL::RunAllTests() {
 	AddTest();
 	//RemoveTest();
-	//SucessorTest();
+	//IsAnAVLTest();
 }
