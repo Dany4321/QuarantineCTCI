@@ -76,7 +76,6 @@ public:
 		AVLTreeNode<T>* res = (AVLTreeNode<T>*)this->_root->AppendNode(value);
 		this->_lastInserted = res;
 		Rebalance(res);
-		this->ParentLinksUpdate();
 		return res;
 
 	}
@@ -201,6 +200,9 @@ private:
 		node->_leftChild = nullptr;
 		tmp->SetParent(node->_parent);
 		node->_leftChild = tmp->_rightChild;
+		if (node->_leftChild != nullptr) {
+			((AVLTreeNode<T>*)node->_leftChild)->_parent = node;
+		}
 		tmp->_rightChild = node;
 		node->SetParent(tmp);
 	}
@@ -209,6 +211,9 @@ private:
 		node->_rightChild = nullptr;
 		tmp->SetParent(node->_parent);
 		node->_rightChild = tmp->_leftChild;
+		if (node->_rightChild != nullptr) {
+			((AVLTreeNode<T>*)node->_rightChild)->_parent = node;
+		}
 		tmp->_leftChild = node;
 		node->SetParent(tmp);
 	}

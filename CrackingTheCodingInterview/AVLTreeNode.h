@@ -17,8 +17,8 @@ public:
 	}
 	void SetParent(AVLTreeNode<T>* parent) {
 		this->_parent = parent;
-		if (parent != nullptr) {
-			if (parent->_value > this->_value) {
+		if (this->_parent != nullptr) {
+			if (this->_parent->_value > this->_value) {
 				this->_parent->_leftChild = this;
 			}
 			else {
