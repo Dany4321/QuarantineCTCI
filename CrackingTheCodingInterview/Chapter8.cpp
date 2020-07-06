@@ -58,20 +58,41 @@ double**  Chapter8::RobotInAGrid(double** grid, int height, int width)
 	double bestChoice = grid[currentI][currentJ];
 	while((currentI != (height -1)) || (currentJ != (width - 1)))
 	{
-		if (grid[currentI][currentJ + 1] >= grid[currentI + 1][currentJ])
+		if ( ((currentI + 1)< height ) && ((currentJ + 1) < width))
+		{
+			if (grid[currentI][currentJ + 1] >= grid[currentI + 1][currentJ])
+			{
+				currentJ += 1;
+			}
+			else if (grid[currentI][currentJ + 1] <= grid[currentI + 1][currentJ])
+			{
+				currentI += 1;
+			}
+		}
+		else if ((currentI + 1) >= height)
 		{
 			currentJ += 1;
 		}
-		else if(grid[currentI][currentJ + 1] <= grid[currentI + 1][currentJ])
+		else if ((currentJ + 1) >= width)
 		{
-			currentJ += 1;
+			currentI += 1;
 		}
+		else 
+		{
+			cout << "No Path available" << endl;
+			break;
+		}
+		
+		grid[currentI][currentJ] = max;
 		if ((currentI >= height) || (currentJ >= width))
 		{
 			cout << "No Path available" << endl;
 			break;
 		}
-		grid[currentI][currentJ] = max;
+		else if((currentI == height-1) && (currentJ == width-1))
+		{
+			break;
+		}
 	}
 	return grid;
 }

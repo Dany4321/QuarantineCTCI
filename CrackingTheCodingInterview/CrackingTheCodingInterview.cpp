@@ -10,6 +10,7 @@
 #include "TestBST.h"
 #include "TestAVL.h"
 #include "Chapter8.h"
+#include <limits>
 int main()
 {
 	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
@@ -46,8 +47,63 @@ int main()
 
 	MyStack<int>* res =Chapter3::SortStack(stack);*/
 	// cout << Chapter8::TripleStep(50) << endl;
-	cout << Chapter8::TripleStepIter(50) << endl;
-		system("pause");
+	// cout << Chapter8::TripleStepIter(50) << endl;
+	double** grid = new double*[5]; 
+	/*{
+						  0, 0, 0, 0, 0, -1,-1,
+						  0, 0, 0, 0, 0, -1, 0,
+						  0,-1, 0, 0, 0,  0, 0,
+						  0, 0, 0, 0, -1,-1, 0,
+						  0, 0,-1, 0,  0, 0, 0
+						};*/
+	for(int o = 0; o<5;o++)
+	{
+		grid[o] = new double[7];
+		for (int m = 0; m < 7; m++) 
+		{
+			grid[o][m] = 0;
+		}
+	}
+	grid[0][5] = -1;
+	grid[0][6] = -1;
+	grid[1][5] = -1;
+	grid[2][1] = -1;
+	grid[3][4] = -1;
+	grid[3][5] = -1;
+	grid[4][2] = -1;
+	for (int i = 0; i < 5; i++)
+	{
+		for(int k = 0; k< 7; k++)
+		{
+			if (grid[i][k] == -1) 
+			{
+				cout << " #";
+			}
+			else {
+				cout << " _";
+			}
+		}
+		cout << endl;
+	}
+	cout << endl;
+	cout << endl;
+	double max = std::numeric_limits<double>::max();
+	double** result = Chapter8::RobotInAGrid(grid, 5, 7);
+	for (int i = 0; i < 5; i++)
+	{
+		for (int k = 0; k < 7; k++)
+		{
+			if (result[i][k] == max)
+			{
+				cout << " X";
+			}
+			else {
+				cout << " _";
+			}
+		}
+		cout << endl;
+	}
+	system("pause");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
