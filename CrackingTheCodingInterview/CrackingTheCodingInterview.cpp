@@ -9,6 +9,7 @@
 #include "TestLinkedList.h"
 #include "TestBST.h"
 #include "TestAVL.h"
+#include "Chapter8.h"
 int main()
 {
 	// StringPermutationsSearch::Search("abc", "aaaaaaaa");
@@ -44,7 +45,8 @@ int main()
 	stack.Push(40);
 
 	MyStack<int>* res =Chapter3::SortStack(stack);*/
-	TestAVL::RunAllTests();
+	// cout << Chapter8::TripleStep(50) << endl;
+	cout << Chapter8::TripleStepIter(50) << endl;
 		system("pause");
 }
 

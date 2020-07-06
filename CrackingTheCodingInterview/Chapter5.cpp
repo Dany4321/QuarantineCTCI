@@ -111,9 +111,46 @@ void  Chapter5::NextNumber(unsigned int N) {
 			}
 		}
 	}
+	// 1010
+	// 0101
 	if (validSwitch0Idx >= 0 && validSwitch1Idx >= 0) {
 		tmp[validSwitch0Idx] = '1';
 		tmp[validSwitch1Idx] = '0';
 		cout << "Largest : " << tmp << endl;
 	}
+}
+int Chapter5::Conversion(int A, int B) {
+	// do a xor and count bit which are equal to 1 in the result
+	int res = A ^ B;
+	string resBinarized = bitset<32>(res).to_string();
+	int oneCounter = 0;
+	for (char c : resBinarized) {
+		if (c == '1') {
+			++oneCounter;
+		}
+	}
+	return oneCounter;
+}
+int Chapter5::PairwiseSwap(int N) {
+	// an int is on 32  bits
+	// input:		  10101001
+	// expeted res:   01010110
+	// -1431655766:   10101010101010101010101010101010
+	// 1431655765:    01010101010101010101010101010101
+	int oddMask = -1431655766;
+	int evenMask = 1431655765;
+	int evenBits = (N & evenMask) << 1;
+	int oddBits = (N & oddBits) >> 1;
+	return evenBits | oddBits;
+}
+
+void Chapter5::DrawLine(char* screen, int width, int x1, int x2, int y) {
+	/*
+	
+	00000000 00000000 00000000
+	00000000 00000000 00000000
+	00000000 00000000 00000000
+	00000000 00000000 00000000
+	
+	*/
 }

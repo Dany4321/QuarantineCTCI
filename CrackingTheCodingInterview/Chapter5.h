@@ -8,4 +8,7 @@ public:
 	static string BinaryToString(double n);
 	static int FlipBitToWin(int N);
 	static void NextNumber(unsigned int N);
+	static int Conversion(int A, int B);
+	static int PairwiseSwap(int A);
+	static void DrawLine(char* screen, int width, int x1, int x2, int y);
 };

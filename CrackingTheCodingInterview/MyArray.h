@@ -44,7 +44,7 @@ public:
 			throw  std::invalid_argument("Index out of bounds");
 		}
 	}
-	int& operator[](int index) {
+	T& operator[](int index) {
 		return this->_array[index];
 	}
 	int GetSize() const {

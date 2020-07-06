@@ -31,6 +31,18 @@
     <Filter Include="Chapters\Algos\Tests">
       <UniqueIdentifier>{69762b30-ce1d-4dba-9b44-a362673a0610}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Chapters\Algos\Exercices\OOD">
+      <UniqueIdentifier>{e233d795-a5d9-4913-bf85-4a1fa53e3e02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chapters\Algos\Exercices\OOD\DeckOfCards">
+      <UniqueIdentifier>{6e4261f9-4875-443f-a04c-0d65433a8f40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chapters\Algos\Exercices\OOD\DeckOfCards\Categories">
+      <UniqueIdentifier>{ca7f090c-5531-4223-b2b0-74f110ddd0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Chapters\Algos\Exercices\OOD\DeckOfCards\Symbols">
+      <UniqueIdentifier>{1775b48d-32ed-4aff-8854-310c33be14a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CrackingTheCodingInterview.cpp">
@@ -65,6 +77,24 @@
     </ClCompile>
     <ClCompile Include="TestStringBuilder.cpp">
       <Filter>Chapters\Algos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter5.cpp">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardFactory.cpp">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClCompile>
+    <ClCompile Include="Chapter8.cpp">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClCompile>
+    <ClCompile Include="CardSymbol.cpp">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardCategory.cpp">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +175,54 @@
     </ClInclude>
     <ClInclude Include="TestMyArray.h">
       <Filter>Chapters\Algos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter5.h">
+      <Filter>Chapters\Algos\Exercices</Filter>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSymbol.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardCategory.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClInclude>
+    <ClInclude Include="King.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="Queen.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="Prince.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="Joker.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="As.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Categories</Filter>
+    </ClInclude>
+    <ClInclude Include="Club.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="Diamond.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="Spade.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards\Symbols</Filter>
+    </ClInclude>
+    <ClInclude Include="CardFactory.h">
+      <Filter>Chapters\Algos\Exercices\OOD\DeckOfCards</Filter>
+    </ClInclude>
+    <ClInclude Include="Chapter8.h">
+      <Filter>Chapters\Algos\Exercices</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
